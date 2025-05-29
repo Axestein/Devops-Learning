@@ -141,3 +141,104 @@ case "$variable" in
     default_commands
     ;;
 esac
+
+## array
+
+arrays are a way to store multiple values in a single variable.
+
+Declaring an Array
+my_array=(apple banana cherry)
+
+
+You can also assign elements individually:
+my_array[0]=apple
+my_array[1]=banana
+my_array[2]=cherry
+
+
+Iterating Over an Array
+for item in "${my_array[@]}"; do
+  echo "$item"
+done
+
+Removing Elements
+unset my_array[1]
+
+
+## functions
+
+Functions in Bash allow you to group commands and reuse them, making your scripts cleaner and more modular.
+
+Defining a Function
+
+my_function() {
+  echo "Hello from the function!"
+}
+
+or
+
+function my_function {
+  echo "Hello from the function!"
+}
+
+Calling a Function
+my_function
+
+
+## AWK 
+
+awk is a powerful text processing tool used in Bash for pattern scanning and processing. It’s especially useful for handling structured text like CSVs, logs, or outputs with columns.
+
+Basic Syntax
+awk 'pattern { action }' filename
+
+Or with pipes:
+command | awk 'pattern { action }'
+
+## sed (Stream Editor)
+
+sed (Stream EDitor) in Bash is used to search, find, replace, insert, or delete text in a file or input stream. It’s great for quick, powerful text transformations.
+
+Basic Syntax
+sed 'command' filename
+
+Or using pipes:
+echo "text" | sed 'command'
+
+🔹 Common sed Commands
+✅ Substitute (Find and Replace)
+sed 's/old/new/' file.txt
+
+
+Replaces first occurrence of "old" with "new" in each line.
+sed 's/old/new/g' file.txt
+
+Replaces all occurrences of "old" with "new" per line.
+
+✅ In-place Editing (Overwrites the file)
+sed -i 's/old/new/g' file.txt
+
+Add .bak for backup:
+sed -i.bak 's/old/new/g' file.txt
+
+✅ Delete Lines
+sed '2d' file.txt       # Delete line 2
+sed '/error/d' file.txt # Delete lines containing "error"
+
+✅ Insert or Append Lines
+sed '2i\New line inserted above line 2' file.txt
+sed '3a\New line inserted below line 3' file.txt
+
+✅ Replace Only on Specific Line
+sed '3s/foo/bar/' file.txt
+Replaces "foo" with "bar" only on line 3.
+
+✅ Print Specific Line(s)
+sed -n '5p' file.txt     # Print only line 5
+sed -n '3,6p' file.txt   # Print lines 3 to 6
+
+🔹 Quick Examples
+echo "Hello world" | sed 's/world/Bash/'
+# Output: Hello Bash
+
+sed -i 's/username/root/' /etc/config.txt
