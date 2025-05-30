@@ -1,0 +1,19 @@
+#key  and its value
+"apple" : "i am read fruit"
+---
+#lists
+- apple
+- mango
+- banana
+- Apple #yaml is case sensative hence apple and Apple are diff
+---
+cities:
+- new delhi
+- mumbai
+- gujrat
+# yaml should always be in correct format,spaces,identation you can check it here https://www.yamllint.com/
+cities: [new delhi, mumbai] # you can represent this in this format also ARRAY FORM
+---
+{mango: "yellow fruit", age: 56}
+...
+# end it with ... and seprate it with ---
