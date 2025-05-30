@@ -1,0 +1,26 @@
+#sparse sequence
+sparse seq:
+ - hey
+ - how
+ -
+ - NULL
+ - sup
+
+# hashtable will be an array
+pair example: !!pairs
+- job: student
+- job: teacher
+
+# same representation method
+pair example: !!pairs [job: student, job: teacher]
+
+# reusing property using anchors
+
+
+# !!set will allow you to have unique values
+names: !!set
+? Kunal
+? Apoorv
+? Rahul
+
+
